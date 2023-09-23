@@ -11,7 +11,29 @@ public class ItemController : MonoBehaviour, IPickable
     }
     public void PickupItem()
     {
-        InventoryManager.Instance.AddItem(ScriptableItem);
-        Destroy(gameObject);
+        if (ScriptableItem.IsStackable)
+        {
+            bool isInInventory = false;
+            foreach(var item in InventoryManager.Instance.Items)
+            {
+                if (item.ID == ScriptableItem.ID)
+                {
+                    InventoryManager.Instance.CurrentAmmo += ScriptableItem.ItemAmount;
+                    isInInventory = true;
+                    Destroy(gameObject);
+                }
+            }
+            if (!isInInventory)
+            {
+                InventoryManager.Instance.CurrentAmmo += ScriptableItem.ItemAmount;
+                InventoryManager.Instance.Items.Add(ScriptableItem);
+                Destroy(gameObject);
+            }
+        }
+        else
+        {
+            InventoryManager.Instance.AddItem(ScriptableItem);
+            Destroy(gameObject);
+        }
     }
 }

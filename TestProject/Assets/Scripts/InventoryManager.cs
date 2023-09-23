@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,6 +13,7 @@ public class InventoryManager : MonoBehaviour
     public GameObject InventoryItem;
 
     public InventoryItemController[] InventoryItems;
+    public int CurrentAmmo = 0;
 
     private void Awake()
     {
@@ -38,15 +40,31 @@ public class InventoryManager : MonoBehaviour
             var itemIcon = obj.transform.Find("ItemIcon").GetComponent<Image>();
             var removeButotn = obj.transform.Find("RemoveButton").gameObject.GetComponent<Button>();
 
-            itemCount.text = item.ItemAmount.ToString();
+            itemCount.text = CurrentAmmo.ToString();
             if (item.ItemAmount == 1)
                 itemCount.gameObject.SetActive(false);
             itemIcon.sprite = item.ItemIcon;
-            bool isItemStackable = item.IsStackable;
 
         }
 
         SetInventoryItems();
+        //StackItems();
+    }
+
+    private void StackItems()
+    {
+        var duplicates = Items.GroupBy(x => x)
+                        .Where(g => g.Count() > 1)
+                        .Select(y => y.Key)
+                        .ToList();
+        foreach (var obj in duplicates)
+        {
+            if (obj.IsStackable)
+            {
+                int id = obj.ID;
+
+            }
+        }
     }
 
     public void SetInventoryItems()
