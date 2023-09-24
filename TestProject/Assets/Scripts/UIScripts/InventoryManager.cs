@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -46,25 +45,8 @@ public class InventoryManager : MonoBehaviour
             itemIcon.sprite = item.ItemIcon;
 
         }
-
         SetInventoryItems();
-        //StackItems();
-    }
 
-    private void StackItems()
-    {
-        var duplicates = Items.GroupBy(x => x)
-                        .Where(g => g.Count() > 1)
-                        .Select(y => y.Key)
-                        .ToList();
-        foreach (var obj in duplicates)
-        {
-            if (obj.IsStackable)
-            {
-                int id = obj.ID;
-
-            }
-        }
     }
 
     public void SetInventoryItems()

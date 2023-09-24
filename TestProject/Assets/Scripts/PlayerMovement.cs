@@ -5,6 +5,7 @@ public class PlayerMovement : MonoBehaviour
     // ChatGPT code with some changes
     [SerializeField] private FixedJoystick m_fixedJoystick;
     [SerializeField] private float m_movementSpeed;
+    [SerializeField] private Healthbar m_healthbar;
 
     private Rigidbody2D _playerRigidbody;
     private bool _isFacingRight;
@@ -29,6 +30,9 @@ public class PlayerMovement : MonoBehaviour
         Vector2 currentScale = gameObject.transform.localScale;
         currentScale.x *= -1;
         gameObject.transform.localScale = currentScale;
+        m_healthbar.gameObject.transform.localScale *= Mathf.Sign(gameObject.transform.localScale.x);
+        if (_isFacingRight)
+            m_healthbar.gameObject.transform.localScale *= -1;
         _isFacingRight = !_isFacingRight;
     }
 }

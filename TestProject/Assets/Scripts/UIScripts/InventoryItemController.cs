@@ -9,6 +9,7 @@ public class InventoryItemController : MonoBehaviour, IRemovable
     public void RemoveItem()
     {
         InventoryManager.Instance.DeleteItem(ScriptableItem);
+        InventoryManager.Instance.CurrentAmmo = 0;
         Destroy(gameObject);
     }
 
