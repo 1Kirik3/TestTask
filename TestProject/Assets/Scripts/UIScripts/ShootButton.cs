@@ -4,14 +4,6 @@ using UnityEngine;
 public class ShootButton : MonoBehaviour
 {
     [SerializeField] private GameObject m_player;
-    private DetectEnemies _playerDetector;
-    private Combat _playerCombat;
-
-    private void Awake()
-    {
-        _playerDetector = m_player.GetComponentInChildren<DetectEnemies>();
-        _playerCombat = m_player.GetComponent<Combat>();
-    }
 
     public void CanShoot()
     {

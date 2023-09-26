@@ -4,11 +4,13 @@ using UnityEngine;
 public class DetectEnemies : MonoBehaviour
 {
     [SerializeField] private ShootButton m_shootButton;
-    private float _minDistance;
-    private int _damage;
 
     public GameObject NearestEnemy;
     public List<GameObject> Enemies = new List<GameObject>();
+
+    private float _minDistance;
+    private int _damage;
+
 
     private void Awake()
     {

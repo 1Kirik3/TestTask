@@ -9,6 +9,7 @@ public class ItemController : MonoBehaviour, IPickable
         if (collision.gameObject.tag == "Player")
             PickupItem();
     }
+
     public void PickupItem()
     {
         if (ScriptableItem.IsStackable)

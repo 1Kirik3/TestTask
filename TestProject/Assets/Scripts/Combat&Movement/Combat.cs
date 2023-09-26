@@ -7,10 +7,11 @@ public class Combat : MonoBehaviour, IDamagable
     [SerializeField] private GameObject m_drop;
     [SerializeField] private Healthbar m_healthbar;
 
-    private bool _isInvincible = false;
-    
     public int m_healthPoints;
     public int m_damageAmount;
+
+    private bool _isInvincible = false;
+    
 
     private void Start()
     {

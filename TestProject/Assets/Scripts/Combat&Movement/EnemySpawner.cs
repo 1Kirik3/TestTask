@@ -4,6 +4,7 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private GameObject m_enemy;
     [SerializeField] private int m_spawnTimes;
+
     private BoxCollider2D _spawnArea;
 
     private void Awake()

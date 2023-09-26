@@ -4,12 +4,12 @@ public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] private int m_MovementSpeed;
 
-    private bool _isFacingRight;
+    public Transform Player;
+
     private CircleCollider2D _triggerZone;
+    private bool _isFacingRight;
     private int _obstaclesLayer;
     private int _damageAmount;
-
-    public Transform Player;
 
     private void Awake()
     {
