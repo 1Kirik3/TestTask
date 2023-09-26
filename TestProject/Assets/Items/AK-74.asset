@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: AK-74
   m_EditorClassIdentifier: 
   IsStackable: 0
+  IsWeapon: 1
+  IsOutfit: 0
   ID: 1
   ItemAmount: 1
   ItemName: AK-74

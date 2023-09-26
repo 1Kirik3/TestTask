@@ -3,16 +3,20 @@ using UnityEngine;
 
 public class ShootButton : MonoBehaviour
 {
+    [SerializeField] private GameObject m_player;
+    private DetectEnemies _playerDetector;
+    private Combat _playerCombat;
 
-    public void Shoot()
+    private void Awake()
     {
-        if (CanShoot())
-            InventoryManager.Instance.CurrentAmmo--;
+        _playerDetector = m_player.GetComponentInChildren<DetectEnemies>();
+        _playerCombat = m_player.GetComponent<Combat>();
     }
 
-    public bool CanShoot()
+    public void CanShoot()
     {
         List<Item> weapons = InventoryManager.Instance.Items.FindAll(item => item.IsWeapon);
-        return (InventoryManager.Instance.CurrentAmmo > 0 && weapons.Count > 0);
+        if (weapons.Count > 0 && InventoryManager.Instance.CurrentAmmo > 0)
+            InventoryManager.Instance.CanShoot = true;
     }
 }

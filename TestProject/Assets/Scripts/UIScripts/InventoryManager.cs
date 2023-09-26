@@ -13,6 +13,7 @@ public class InventoryManager : MonoBehaviour
 
     public InventoryItemController[] InventoryItems;
     public int CurrentAmmo = 0;
+    public bool CanShoot;
 
     private void Awake()
     {

@@ -27,7 +27,7 @@ public class Combat : MonoBehaviour, IDamagable
             m_healthbar.SetHealth(m_healthPoints);
             if (m_healthPoints <= 0)
             {
-                Instantiate(m_drop);
+                Instantiate(m_drop, gameObject.transform.position, Quaternion.identity);
                 Destroy(gameObject);
             }
         }

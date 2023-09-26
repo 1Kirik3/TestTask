@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Makarov
   m_EditorClassIdentifier: 
   IsStackable: 0
+  IsWeapon: 1
+  IsOutfit: 0
   ID: 2
   ItemAmount: 1
   ItemName: Makarov
